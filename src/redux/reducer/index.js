@@ -1,3 +1,5 @@
+import uniqueid from '../../helpers/uniqueid';
+
 const initState = {
   lists: [
     {
@@ -18,7 +20,7 @@ const reducer = (state = initState, action) => {
       return Object.assign({}, state, {
         lists: [...state.lists,
           {
-            id: 2,
+            id: uniqueid(),
             title: action.payload.title,
             items: [],
           }],
