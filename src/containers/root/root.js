@@ -1,16 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import AddList from '../../components/AddList';
 
 class App extends React.Component {
   static propTypes = {
-    store: React.PropTypes.string,
+    dispatch: React.PropTypes.func,
+  };
+
+  addList = title => (e) => {
+    e.preventDefault();
+
+    this.props.dispatch({
+      type: 'ADD_LIST',
+      payload: { title },
+    });
   };
 
   render() {
-    const { store } = this.props;
-
     return (
-      <h1>{store}</h1>
+      <AddList submit={this.addList} />
     );
   }
 }
