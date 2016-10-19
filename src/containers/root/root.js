@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AddList from '../../components/AddList';
+import List from '../../components/List';
 
 class App extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func,
+    store: React.PropTypes.object,
   };
 
   addList = title => (e) => {
@@ -18,7 +20,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <AddList submit={this.addList} />
+      <div>
+        <List lists={this.props.store.lists} />
+        <AddList submit={this.addList} />
+      </div>
     );
   }
 }
