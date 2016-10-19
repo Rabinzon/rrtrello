@@ -1,4 +1,7 @@
 import React from 'react';
+import Card from '../Card';
+
+const renderCards = (card, key) => <Card card={card} key={key} />;
 
 const ListItem = ({ item }) => { // eslint-disable-line
   return (
@@ -9,6 +12,7 @@ const ListItem = ({ item }) => { // eslint-disable-line
           {item.items.length} cards
         </div>
       </div>
+      {item.items.map(renderCards)}
     </div>
   );
 };
