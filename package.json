@@ -1,0 +1,53 @@
+{
+  "name": "rrtrello",
+  "version": "0.0.1",
+  "description": "sample app like trello, with react + redux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0",
+    "start": "webpack-dev-server --progress --colors",
+    "lint": "eslint -c .eslintrc ./src"
+  },
+  "prepush": [
+    "npm run lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Rabinzon/rrtrello.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "todo",
+    "js"
+  ],
+  "author": "Rabinzon ildarrazin@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rabinzon/rrtrello/issues"
+  },
+  "homepage": "https://github.com/Rabinzon/rrtrello#readme",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "prepush": "^3.1.11",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0"
+  }
+}
