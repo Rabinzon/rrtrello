@@ -5,10 +5,19 @@ const initState = {
     {
       id: 1,
       title: 'Some List',
-      items: [{
-        id: 1,
-        title: 'some task',
-      }],
+      items: [
+        {
+          id: 1,
+          title: 'some task',
+        },
+        {
+          id: 2,
+          title: 'some task',
+        },
+        {
+          id: 3,
+          title: 'some task',
+        }],
     },
   ],
 };
