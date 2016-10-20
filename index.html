@@ -5,27 +5,37 @@
   <title>react + redux trello</title>
   <style>
     body {
-      background-color: rgb(131, 140, 145);
       margin: 0;
       padding: 0;
       overflow-y: hidden;
       height: 100vh;
+      background-color: rgb(131, 140, 145);
     }
+
+    .wrapper {
+      display: inline-flex;
+      margin: 20px 0;
+      align-items: flex-start;
+    }
+
     .header {
       height: 40px;
       background: rgba(0,0,0,.15);
       color: #4d4d4d;
       padding: 0 30px;
     }
+
     .logo {
       line-height: 40px;
       color: #fff;
       font-size: 25px;
       font-weight: 800;
     }
+
     #app {
       padding: 0 30px;
     }
+
     .container {
       height: 94vh;
       width: 100%;
@@ -34,25 +44,17 @@
 
     .list-container {
       display: inline-flex;
+      align-items: flex-start;
     }
 
     .list {
       background: #E2E4E6;
       border-radius: 3px;
-      position: relative;
       width: 270px;
       margin: 5px;
-      height: 100%;
-      box-sizing: border-box;
-      display: inline-block;
-      vertical-align: top;
-      white-space: nowrap;
     }
 
     .list__header {
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
       flex: 0 0 auto;
       padding: 8px 10px;
       position: relative;
@@ -62,6 +64,7 @@
     .list__header:hover {
       cursor: text;
     }
+
     .list__title {
       position: relative;
     }
@@ -77,13 +80,29 @@
       cursor: text;
     }
 
+    .list__title form {
+      display: inline;
+      margin-right: 5px;
+    }
+
     .list__header-input {
       border-radius: 5px;
       border: none;
       padding: 5px;
       width: 84%;
-      position: absolute;
-      top: 0;
+      display: inline-flex;
+    }
+
+    .list__title-form {
+      display: none;
+    }
+
+    .list__title_edit .list__title-form {
+      display: block;
+    }
+
+    .list__title_edit .list__title-text {
+      display: none;
     }
 
     .add-list {
@@ -95,7 +114,7 @@
       padding: 4px;
       border-radius: 3px;
       width: 270px;
-      margin: 10px;
+      margin: 5px;
       transition: all 1s;
       display: inline-flex;
     }
@@ -191,7 +210,6 @@
       padding: 7px 20px;
       text-align: center;
       box-sizing: border-box;
-      -webkit-appearance: none;
       background-color: #E2E4E6;
       border-radius: 3px;
       margin-bottom: 9pt;
@@ -213,7 +231,6 @@
       padding: 7px 20px;
       text-align: center;
       box-sizing: border-box;
-      -webkit-appearance: none;
       background-color: #E2E4E6;
       border-radius: 3px;
       margin-bottom: 9pt;
@@ -240,6 +257,7 @@
     .list__add-card-input:focus {
       outline: none;
     }
+
   </style>
 </head>
 <body>
