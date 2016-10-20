@@ -6,6 +6,7 @@ class ListItem extends React.Component {
     item: React.PropTypes.object,
     submit: React.PropTypes.func,
     editListTitle: React.PropTypes.func,
+    removeList: React.PropTypes.func,
   };
 
   state = {
@@ -38,6 +39,10 @@ class ListItem extends React.Component {
     this.setState(Object.assign({}, this.state, { title: e.target.value }));
   };
 
+  handleRemove = () => {
+    this.props.removeList(this.props.item.id);
+  };
+
   renderCards = (card, key) => <Card card={card} key={key} />;
 
   render() {
@@ -51,6 +56,7 @@ class ListItem extends React.Component {
             <a href='' className='list__title-text' onClick={this.handleEdit}>
               {item.title}
             </a>
+
             <div style={{ display }}>
               <form onSubmit={this.handleEdit}>
                 <input
@@ -60,6 +66,7 @@ class ListItem extends React.Component {
                   onChange={this.handleChange}
                 />
               </form>
+              <button onClick={this.handleRemove}>X</button>
             </div>
           </div>
           <div className='list__header-cards'>
