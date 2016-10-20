@@ -19,28 +19,30 @@ class Card extends React.Component {
   };
 
   handleVal = (e) => {
-    this.setState(Object.assign({}, this.state, {
+    this.setState({
+      ...this.state,
       val: e.target.value,
-    }));
+    });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { id, list } = this.props.card;
-    this.props.editCard(this.state.val, list, id);
-
     this.changeStateEdit();
+    this.props.editCard(this.state.val, list, id);
   };
 
   handleRemoveCard = () => {
     const { id, list } = this.props.card;
+    this.changeStateEdit();
     this.props.removeCard(list, id);
   };
 
   changeStateEdit = () => {
-    this.setState(Object.assign({}, this.state, {
+    this.setState({
+      ...this.state,
       edit: !this.state.edit,
-    }));
+    });
   };
 
   render() {
