@@ -47,6 +47,15 @@ const reducer = (state = initState, action) => {
           return list;
         }),
       });
+    case 'EDIT_LIST_TITLE':
+      return Object.assign({}, state, {
+        lists: state.lists.map((list) => {
+          if (list.id === action.payload.id) {
+            return Object.assign({}, list, { title: action.payload.title });
+          }
+          return list;
+        }),
+      });
     default :
       return state;
   }
