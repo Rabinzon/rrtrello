@@ -25,6 +25,20 @@ class App extends React.Component {
     });
   };
 
+  editCard = (title, listId, cardId) => {
+    this.props.dispatch({
+      type: 'EDIT_CARD_TITLE',
+      payload: { title, listId, cardId },
+    });
+  };
+
+  removeCard = (listId, cardId) => {
+    this.props.dispatch({
+      type: 'REMOVE_CARD',
+      payload: { listId, cardId },
+    });
+  };
+
   editListTitle = (title, id) => {
     this.props.dispatch({
       type: 'EDIT_LIST_TITLE',
@@ -47,6 +61,8 @@ class App extends React.Component {
           submit={this.addCard}
           editListTitle={this.editListTitle}
           removeList={this.removeList}
+          editCard={this.editCard}
+          removeCard={this.removeCard}
         />
         <AddList submit={this.addList} />
       </div>
