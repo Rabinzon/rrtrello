@@ -136,6 +136,89 @@
       max-width: 300px;
       min-height: 20px;
       margin: 5px;
+      display: block;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .card-editor {
+      display: none;
+    }
+
+    .card_form .card-editor {
+      display: block;
+    }
+
+    .card_form .card {
+      display: none;
+    }
+
+    .card-editor__input {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 5px;
+      width: 245px;
+      margin: 0 auto 6px;
+      display: block;
+      min-height: 20px;
+      position: relative;
+      z-index: 0;
+      max-width: 245px;
+    }
+
+    .card__text {
+      display: block;
+      font-weight: 400;
+      margin: 0 0 4px;
+      overflow: hidden;
+      text-decoration: none;
+      word-wrap: break-word;
+    }
+
+    .card__save {
+      background: -webkit-linear-gradient(top,#61BD4F 0,#5AAC44 100%);
+      background: linear-gradient(to bottom,#61BD4F 0,#5AAC44 100%);
+      box-shadow: 0 1px 0 #3F6F21;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 700;
+      line-height: 22px;
+      margin: 8px 4px 0 0;
+      padding: 7px 20px;
+      text-align: center;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      background-color: #E2E4E6;
+      border-radius: 3px;
+      margin-bottom: 9pt;
+      margin-left: 5px;
+      min-height: 34px;
+    }
+
+    .card__remove{
+      background: -webkit-linear-gradient(top,#D6DADC 0,#CDD2D4 100%);
+      background: linear-gradient(to bottom,#D6DADC 0,#CDD2D4 100%);
+      box-shadow: 0 1px 0 #3F6F21;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 700;
+      line-height: 22px;
+      margin: 8px 4px 0 0;
+      padding: 7px 20px;
+      text-align: center;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      background-color: #E2E4E6;
+      border-radius: 3px;
+      margin-bottom: 9pt;
+      margin-left: 5px;
+      min-height: 34px;
     }
 
     .list__add-card {

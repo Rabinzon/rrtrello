@@ -9,15 +9,14 @@ const initState = {
         {
           id: 1,
           title: 'some task',
+          list: 1,
         },
         {
           id: 2,
           title: 'some task',
+          list: 1,
         },
-        {
-          id: 3,
-          title: 'some task',
-        }],
+      ],
     },
   ],
 };
@@ -41,6 +40,7 @@ const reducer = (state = initState, action) => {
               items: [...list.items, {
                 id: uniqueid(),
                 title: action.payload.title,
+                list: list.id,
               }],
             });
           }
@@ -63,6 +63,40 @@ const reducer = (state = initState, action) => {
             return false;
           }
           return true;
+        }),
+      });
+    case 'REMOVE_CARD':
+      return Object.assign({}, state, {
+        lists: state.lists.map((list) => {
+          if (list.id === action.payload.listId) {
+            return Object.assign({}, list, {
+              items: list.items.filter((card) => {
+                console.log(card);
+                return card.id !== action.payload.cardId;
+              }),
+            });
+          }
+          return list;
+        }),
+      });
+    case 'EDIT_CARD_TITLE':
+      console.log(action);
+      return Object.assign({}, state, {
+        lists: state.lists.map((list) => {
+          if (list.id === action.payload.listId) {
+            return Object.assign({}, list, {
+              items: list.items.map((card) => {
+                if (card.id === action.payload.cardId) {
+                  return {
+                    id: card.id,
+                    title: action.payload.title,
+                  };
+                }
+                return card;
+              }),
+            });
+          }
+          return list;
         }),
       });
     default :
