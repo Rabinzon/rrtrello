@@ -5,6 +5,7 @@ class AddList extends React.Component {
   static propTypes = {
     lists: React.PropTypes.array,
     submit: React.PropTypes.func,
+    editListTitle: React.PropTypes.func,
   };
 
   renderLists = (item, key) =>
@@ -12,6 +13,7 @@ class AddList extends React.Component {
       item={item}
       key={key}
       submit={this.props.submit}
+      editListTitle={this.props.editListTitle}
     />;
 
   render() {
