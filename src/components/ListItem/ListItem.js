@@ -66,17 +66,17 @@ class ListItem extends React.Component {
 
   render() {
     const { item } = this.props;
-    const display = this.state.edit ? 'block' : 'none';
+    const edit = this.state.edit ? 'list__title list__title_edit' : 'list__title';
 
     return (
       <div className='list'>
         <div className='list__header'>
-          <div className='list__title' >
+          <div className={edit} >
             <a href='' className='list__title-text' onClick={this.handleEdit}>
               {item.title}
             </a>
 
-            <div style={{ display }}>
+            <div className='list__title-form'>
               <form onSubmit={this.handleEdit}>
                 <input
                   type='text'
