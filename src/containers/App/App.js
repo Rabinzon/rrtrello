@@ -53,7 +53,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className='wrapper'>
         <List
           lists={this.props.store.lists}
           submit={this.addCard}
