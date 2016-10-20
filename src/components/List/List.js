@@ -7,6 +7,8 @@ class AddList extends React.Component {
     submit: React.PropTypes.func,
     editListTitle: React.PropTypes.func,
     removeList: React.PropTypes.func,
+    editCard: React.PropTypes.func,
+    removeCard: React.PropTypes.func,
   };
 
   renderLists = (item, key) =>
@@ -16,6 +18,8 @@ class AddList extends React.Component {
       submit={this.props.submit}
       editListTitle={this.props.editListTitle}
       removeList={this.props.removeList}
+      editCard={this.props.editCard}
+      removeCard={this.props.removeCard}
     />;
 
   render() {

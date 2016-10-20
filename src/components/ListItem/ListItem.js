@@ -7,6 +7,8 @@ class ListItem extends React.Component {
     submit: React.PropTypes.func,
     editListTitle: React.PropTypes.func,
     removeList: React.PropTypes.func,
+    editCard: React.PropTypes.func,
+    removeCard: React.PropTypes.func,
   };
 
   state = {
@@ -43,7 +45,13 @@ class ListItem extends React.Component {
     this.props.removeList(this.props.item.id);
   };
 
-  renderCards = (card, key) => <Card card={card} key={key} />;
+  renderCards = (card, key) =>
+    <Card
+      card={card}
+      key={key}
+      editCard={this.props.editCard}
+      removeCard={this.props.removeCard}
+    />;
 
   render() {
     const { item } = this.props;
