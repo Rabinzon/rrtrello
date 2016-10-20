@@ -32,6 +32,13 @@ class App extends React.Component {
     });
   };
 
+  removeList = (id) => {
+    this.props.dispatch({
+      type: 'REMOVE_LIST',
+      payload: { id },
+    });
+  };
+
   render() {
     return (
       <div>
@@ -39,6 +46,7 @@ class App extends React.Component {
           lists={this.props.store.lists}
           submit={this.addCard}
           editListTitle={this.editListTitle}
+          removeList={this.removeList}
         />
         <AddList submit={this.addList} />
       </div>
