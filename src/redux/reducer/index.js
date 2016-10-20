@@ -23,7 +23,6 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case 'ADD_LIST':
       return Object.assign({}, state, {
@@ -33,6 +32,29 @@ const reducer = (state = initState, action) => {
             title: action.payload.title,
             items: [],
           }],
+      });
+    case 'ADD_CARD':
+      return Object.assign({}, state, {
+        lists: state.lists.map((list) => {
+          if (list.id === action.payload.id) {
+            return Object.assign({}, list, {
+              items: [...list.items, {
+                id: uniqueid(),
+                title: action.payload.title,
+              }],
+            });
+          }
+          return list;
+        }),
+      });
+    case 'EDIT_LIST_TITLE':
+      return Object.assign({}, state, {
+        lists: state.lists.map((list) => {
+          if (list.id === action.payload.id) {
+            return Object.assign({}, list, { title: action.payload.title });
+          }
+          return list;
+        }),
       });
     default :
       return state;

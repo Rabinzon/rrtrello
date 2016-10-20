@@ -1,24 +1,83 @@
 import React from 'react';
 import Card from '../Card';
 
-const renderCards = (card, key) => <Card card={card} key={key} />;
+class ListItem extends React.Component {
+  propTypes = {
+    item: React.PropTypes.object,
+    submit: React.PropTypes.func,
+    editListTitle: React.PropTypes.func,
+  };
 
-const ListItem = ({ item }) => { // eslint-disable-line
-  return (
-    <div className='list'>
-      <div className='list__header'>
-        {item.title}
-        <div className='list__header-cards'>
-          {item.items.length} cards
+  state = {
+    val: '',
+    id: this.props.item.id,
+    title: this.props.item.title,
+    edit: false,
+  };
+
+  handleNewCard = (e) => {
+    this.setState({ val: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { val, id } = this.state;
+    this.props.submit(val, id);
+  };
+
+  handleEdit = (e) => {
+    e.preventDefault();
+
+    if (this.state.edit) {
+      this.props.editListTitle(this.state.title, this.props.item.id);
+    }
+    this.setState(Object.assign({}, this.state, { edit: !this.state.edit }));
+  };
+
+  handleChange = (e) => {
+    this.setState(Object.assign({}, this.state, { title: e.target.value }));
+  };
+
+  renderCards = (card, key) => <Card card={card} key={key} />;
+
+  render() {
+    const { item } = this.props;
+    const display = this.state.edit ? 'block' : 'none';
+
+    return (
+      <div className='list'>
+        <div className='list__header'>
+          <div className='list__title' >
+            <a href='' className='list__title-text' onClick={this.handleEdit}>
+              {item.title}
+            </a>
+            <div style={{ display }}>
+              <form onSubmit={this.handleEdit}>
+                <input
+                  type='text'
+                  className='list__header-input'
+                  defaultValue={item.title}
+                  onChange={this.handleChange}
+                />
+              </form>
+            </div>
+          </div>
+          <div className='list__header-cards'>
+            {item.items.length} cards
+          </div>
         </div>
+        {item.items.map(this.renderCards)}
+        <form className='list__add-card' onSubmit={this.handleSubmit}>
+          <input
+            className='list__add-card-input'
+            type='text'
+            placeholder='add card...'
+            onChange={this.handleNewCard}
+          />
+        </form>
       </div>
-      {item.items.map(renderCards)}
-    </div>
-  );
-};
-
-ListItem.propTypes = {
-  item: React.PropTypes.object,
-};
+    );
+  }
+}
 
 export default ListItem;

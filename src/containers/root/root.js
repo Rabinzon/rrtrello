@@ -18,10 +18,28 @@ class App extends React.Component {
     });
   };
 
+  addCard = (title, id) => {
+    this.props.dispatch({
+      type: 'ADD_CARD',
+      payload: { title, id },
+    });
+  };
+
+  editListTitle = (title, id) => {
+    this.props.dispatch({
+      type: 'EDIT_LIST_TITLE',
+      payload: { title, id },
+    });
+  };
+
   render() {
     return (
       <div>
-        <List lists={this.props.store.lists} />
+        <List
+          lists={this.props.store.lists}
+          submit={this.addCard}
+          editListTitle={this.editListTitle}
+        />
         <AddList submit={this.addList} />
       </div>
     );
