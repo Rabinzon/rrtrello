@@ -76,7 +76,7 @@ class ListItem extends React.Component {
               {item.title}
             </a>
 
-            <div className="list__title-form">
+            <div className='list__title-form'>
               <form onSubmit={this.handleEdit}>
                 <input
                   type='text'
