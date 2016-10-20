@@ -9,7 +9,7 @@ class App extends React.Component {
     store: React.PropTypes.object,
   };
 
-  addList = title => {
+  addList = (title) => {
     this.props.dispatch({
       type: 'ADD_LIST',
       payload: { title },
