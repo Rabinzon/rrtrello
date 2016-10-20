@@ -34,14 +34,25 @@ class ListItem extends React.Component {
     if (this.state.edit) {
       this.props.editListTitle(this.state.title, this.props.item.id);
     }
-    this.setState(Object.assign({}, this.state, { edit: !this.state.edit }));
+    this.setState({
+      ...this.state,
+      edit: !this.state.edit,
+    });
   };
 
   handleChange = (e) => {
-    this.setState(Object.assign({}, this.state, { title: e.target.value }));
+    this.setState({
+      ...this.state,
+      value: e.target.value,
+    });
   };
 
   handleRemove = () => {
+    this.setState({
+      ...this.state,
+      edit: !this.state.edit,
+    });
+
     this.props.removeList(this.props.item.id);
   };
 
