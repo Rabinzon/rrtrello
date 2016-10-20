@@ -16,7 +16,7 @@ class AddList extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.submit(this.state.value);
-    this.refs.addListInput.value = '';
+    this.refs.addListInput.value = ''; // eslint-disable-line
   };
 
   render() {
@@ -28,7 +28,7 @@ class AddList extends React.Component {
             placeholder='add a list...'
             onChange={this.handleChangeValue}
             className='add-list__input'
-            ref="addListInput"
+            ref='addListInput'
           />
         </form>
       </div>
