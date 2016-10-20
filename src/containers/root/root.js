@@ -9,9 +9,7 @@ class App extends React.Component {
     store: React.PropTypes.object,
   };
 
-  addList = title => (e) => {
-    e.preventDefault();
-
+  addList = title => {
     this.props.dispatch({
       type: 'ADD_LIST',
       payload: { title },
