@@ -25,12 +25,20 @@ class App extends React.Component {
     });
   };
 
+  editListTitle = (title, id) => {
+    this.props.dispatch({
+      type: 'EDIT_LIST_TITLE',
+      payload: { title, id },
+    });
+  };
+
   render() {
     return (
       <div>
         <List
           lists={this.props.store.lists}
           submit={this.addCard}
+          editListTitle={this.editListTitle}
         />
         <AddList submit={this.addList} />
       </div>
