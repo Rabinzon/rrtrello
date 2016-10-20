@@ -56,6 +56,15 @@ const reducer = (state = initState, action) => {
           return list;
         }),
       });
+    case 'REMOVE_LIST':
+      return Object.assign({}, state, {
+        lists: state.lists.filter((list) => {
+          if (list.id === action.payload.id) {
+            return false;
+          }
+          return true;
+        }),
+      });
     default :
       return state;
   }
