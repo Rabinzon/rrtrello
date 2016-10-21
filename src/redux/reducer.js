@@ -1,28 +1,28 @@
+import { createAction, createReducer } from 'redux-act';
 import initState from './initState';
-import addList from './modules/addList';
-import addCard from './modules/addCard';
-import editListTitle from './modules/editListTitle';
-import removeList from './modules/removeList';
-import removeCard from './modules/removeCard';
-import editCardTitle from './modules/editCardTitle';
+import {
+  addList,
+  addCard,
+  editListTitle,
+  removeList,
+  removeCard,
+  editCardTitle,
+} from './modules';
 
-const reducer = (state = initState, action) => {
-  switch (action.type) {
-    case 'ADD_LIST':
-      return addList(state, action);
-    case 'ADD_CARD':
-      return addCard(state, action);
-    case 'EDIT_LIST_TITLE':
-      return editListTitle(state, action);
-    case 'REMOVE_LIST':
-      return removeList(state, action);
-    case 'REMOVE_CARD':
-      return removeCard(state, action);
-    case 'EDIT_CARD_TITLE':
-      return editCardTitle(state, action);
-    default :
-      return state;
-  }
-};
+const ADD_LIST = createAction('ADD_LIST');
+const ADD_CARD = createAction('ADD_CARD');
+const EDIT_LIST_TITLE = createAction('EDIT_LIST_TITLE');
+const REMOVE_LIST = createAction('REMOVE_LIST');
+const REMOVE_CARD = createAction('REMOVE_CARD');
+const EDIT_CARD_TITLE = createAction('EDIT_CARD_TITLE');
+
+const reducer = createReducer({
+  [ADD_LIST]: addList,
+  [ADD_CARD]: addCard,
+  [EDIT_LIST_TITLE]: editListTitle,
+  [REMOVE_LIST]: removeList,
+  [REMOVE_CARD]: removeCard,
+  [EDIT_CARD_TITLE]: editCardTitle,
+}, initState);
 
 export default reducer;
