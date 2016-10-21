@@ -1,6 +1,6 @@
 import uniqueid from '../../helpers/uniqueid';
 
-const AddList = (state, { payload }) => ({
+const AddList = (state, payload) => ({
   ...state,
   lists: [...state.lists, {
     id: uniqueid(),

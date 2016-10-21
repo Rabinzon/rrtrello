@@ -8,7 +8,7 @@ const findAndEditList = payload => (list) => {
   return list;
 };
 
-const editListTitle = (state, { payload }) => ({
+const editListTitle = (state, payload) => ({
   ...state,
   lists: state.lists
     .map(findAndEditList(payload)),

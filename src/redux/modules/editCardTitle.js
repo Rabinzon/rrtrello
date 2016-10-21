@@ -18,7 +18,7 @@ const findCardInLists = payload => (list) => {
   return list;
 };
 
-const removeList = (state, { payload }) => ({
+const removeList = (state, payload) => ({
   ...state,
   lists: state.lists.map(findCardInLists(payload)),
 });
