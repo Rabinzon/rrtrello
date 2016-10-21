@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AddList from '../../components/AddList';
 import List from '../../components/List';
+import { addListAct, addCardAct } from '../../redux/actions/';
 
 class App extends React.Component {
   static propTypes = {
@@ -10,17 +11,11 @@ class App extends React.Component {
   };
 
   addList = (title) => {
-    this.props.dispatch({
-      type: 'ADD_LIST',
-      payload: { title },
-    });
+    this.props.dispatch(addListAct(title));
   };
 
   addCard = (title, id) => {
-    this.props.dispatch({
-      type: 'ADD_CARD',
-      payload: { title, id },
-    });
+    this.props.dispatch(addCardAct(title, id));
   };
 
   editCard = (title, listId, cardId) => {
