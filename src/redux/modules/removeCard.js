@@ -1,6 +1,6 @@
 const isEqual = ({ cardId }) => ({ id }) => id !== cardId;
 
-const removeList = (state, { payload }) => ({
+const removeCard = (state, payload) => ({
   ...state,
   lists: state.lists.map((list) => {
     if (list.id === payload.listId) {
@@ -13,4 +13,4 @@ const removeList = (state, { payload }) => ({
   }),
 });
 
-export default removeList;
+export default removeCard;

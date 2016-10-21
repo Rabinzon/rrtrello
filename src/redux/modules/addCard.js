@@ -14,7 +14,7 @@ const addCardToList = payload => (list) => {
   return list;
 };
 
-const addCard = (state, { payload }) => ({
+const addCard = (state, payload) => ({
   ...state,
   lists: state.lists.map(addCardToList(payload)),
 });

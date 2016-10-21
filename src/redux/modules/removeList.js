@@ -1,4 +1,4 @@
-const removeList = (state, { payload }) => ({
+const removeList = (state, payload) => ({
   ...state,
   lists: state.lists.filter((list) => {
     if (list.id === payload.id) {
