@@ -9,6 +9,6 @@ how to start:
 ```sh
 $ git clone git@github.com:Rabinzon/rrtrello.git
 $ cd rrtrello
-$ make up
+$ yarn install or npm install
 $ make run
 ```
