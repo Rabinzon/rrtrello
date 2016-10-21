@@ -1,5 +1,15 @@
-import { createAction, createReducer } from 'redux-act';
+import { createReducer } from 'redux-act';
 import initState from './initState';
+
+import {
+  ADD_CARD,
+  ADD_LIST,
+  EDIT_LIST_TITLE,
+  REMOVE_LIST,
+  REMOVE_CARD,
+  EDIT_CARD_TITLE,
+} from './actions/';
+
 import {
   addList,
   addCard,
@@ -8,13 +18,6 @@ import {
   removeCard,
   editCardTitle,
 } from './modules';
-
-const ADD_LIST = createAction('ADD_LIST');
-const ADD_CARD = createAction('ADD_CARD');
-const EDIT_LIST_TITLE = createAction('EDIT_LIST_TITLE');
-const REMOVE_LIST = createAction('REMOVE_LIST');
-const REMOVE_CARD = createAction('REMOVE_CARD');
-const EDIT_CARD_TITLE = createAction('EDIT_CARD_TITLE');
 
 const reducer = createReducer({
   [ADD_LIST]: addList,
